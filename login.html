@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SogeFix</title>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation for logged-in users -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="bi-tools"></i>
+                <span>SogeFix</span>
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tickets">My Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#interventions">Interventions</a>
+                    </li>
+                    <!-- Other nav items -->
+                </ul>
+
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi-person-circle me-1"></i> John Doe
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="#settings">Settings</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="logout.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content (the original homepage content) -->
+    <section class="hero-section d-flex justify-content-center align-items-center" id="home">
+        <!-- Your existing hero section with ticket search -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-12 mx-auto text-center">
+                    <h1 class="text-white">Welcome back, John!</h1>
+                    <h6 class="text-light">You have 3 pending interventions and 5 active tickets</h6>
+
+                    <!-- Quick Action Form -->
+                    <form class="custom-form mt-4 pt-2 mb-lg-0 mb-5" id="ticketSearchForm">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bi-ticket-perforated" id="basic-addon1"></span>
+                            <input name="ticket_id" type="search" class="form-control" id="ticketSearch"
+                                placeholder="Enter your Ticket ID..." aria-label="Search Ticket">
+                            <button type="submit" class="form-control btn btn-primary">Track</button>
+                        </div>
+                    </form>
+
+                    <!-- Quick Links Buttons -->
+                    <div class="mt-4">
+                        <a href="#tickets" class="btn btn-light me-2">Submit Request</a>
+                        <a href="#interventions" class="btn btn-outline-light">View Interventions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                    <div class="custom-block bg-white shadow-lg">
+                        <div class="d-flex">
+                            <div>
+                                <h5 class="mb-2">IT Support</h5>
+                                <p class="mb-0">Get help with your IT issues and requests.</p>
+                            </div>
+                            <span class="badge bg-design rounded-pill ms-auto">14</span>
+                        </div>
+                        <img src="images/topics/it.png" class="custom-block-image img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                    <div class="custom-block bg-white shadow-lg">
+                        <div class="d-flex">
+                            <div>
+                                <h5 class="mb-2">Facilities</h5>
+                                <p class="mb-0">Request maintenance or report facility issues.</p>
+                            </div>
+                            <span class="badge bg-design rounded-pill ms-auto">8</span>
+                        </div>
+                        <img src="images/te.png" class="custom-block-image img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="custom-block bg-white shadow-lg">
+                        <div class="d-flex">
+                            <div>
+                                <h5 class="mb-2">Security</h5>
+                                <p class="mb-0">Report security concerns or get assistance.</p>
+                            </div>
+                            <span class="badge bg-design rounded-pill ms-auto">5</span>
+                        </div>
+                        <img src="images/secure.png" class="custom-block-image img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section class="explore-section section-padding" id="explore">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="mb-4">Explore More Topics</h2>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="custom-block bg-white shadow-lg">
+                        <a href="#tickets">
+                            <div class="d-flex">
+                                <div>
+                                    <h5 class="mb-2">Submit Request</h5>
+                                    <p class="mb-0">Create a new support ticket for your needs.</p>
+                                </div>
+                                <span class="badge bg-design rounded-pill ms-auto">New</span>
+                            </div>
+                            <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid"
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="custom-block bg-white shadow-lg">
+                        <a href="#interventions">
+                            <div class="d-flex">
+                                <div>
+                                    <h5 class="mb-2">View Interventions</h5>
+                                    <p class="mb-0">Check status of ongoing interventions.</p>
+                                </div>
+                                <span class="badge bg-design rounded-pill ms-auto">Active</span>
+                            </div>
+                            <img src="images/topics/undraw_Remote_design_team_re_urdx.png"
+                                class="custom-block-image img-fluid" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="custom-block bg-white shadow-lg">
+                        <a href="#profile">
+                            <div class="d-flex">
+                                <div>
+                                    <h5 class="mb-2">Profile</h5>
+                                    <p class="mb-0">Manage your account and settings.</p>
+                                </div>
+                                <span class="badge bg-design rounded-pill ms-auto">User</span>
+                            </div>
+                            <img src="images/topics/undraw_Educator_re_ju47.png" class="custom-block-image img-fluid"
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="custom-block bg-white shadow-lg">
+                        <a href="#faq">
+                            <div class="d-flex">
+                                <div>
+                                    <h5 class="mb-2">FAQ</h5>
+                                    <p class="mb-0">Find answers to common questions.</p>
+                                </div>
+                                <span class="badge bg-design rounded-pill ms-auto">Info</span>
+                            </div>
+                            <img src="images/faq_graphic.jpg" class="custom-block-image img-fluid" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer section-padding">
+        <!-- Your existing footer code -->
+    </footer>
+
+    <script>
+        // JavaScript to check authentication status
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if user is logged in (you'll implement proper authentication)
+            const isLoggedIn = checkAuthStatus(); // This function would check cookies/tokens
+
+            if (!isLoggedIn) {
+                // Redirect to login if not authenticated
+                window.location.href = 'login.html';
+            }
+
+            // Load user-specific data
+            loadUserData();
+        });
+
+        function checkAuthStatus() {
+            // Implement actual authentication check
+            // This might check for a token in localStorage, cookies, or make an API call
+            return localStorage.getItem('authToken') !== null;
+        }
+    </script>
+</body>
+
+</html>
