@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Technician Dashboard - SogeFix">
+    <meta name="author" content="SogeFix">
+    <title>Technician Dashboard - SogeFix</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .custom-block {
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+
+        .custom-block:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .badge {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .timeline {
+            border-left: 2px solid #0d6efd;
+            padding-left: 24px;
+            margin-left: 8px;
+        }
+
+        .timeline-step {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .timeline-step:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0d6efd;
+        }
+
+        .stats-block {
+            background: linear-gradient(120deg, #0d6efd 60%, #ffc107 100%);
+            color: #fff;
+            border-radius: 16px;
+            padding: 24px 0;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <main>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi-tools"></i>
+                    <span>SogeFix</span>
+                </a>
+
+                <div class="d-lg-none ms-auto me-4">
+                    <a href="#profile" class="navbar-icon bi-person"></a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#assigned-tickets">My Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#interventions">Interventions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#schedule">Schedule</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-none d-lg-block">
+                        <a href="#notifications" class="navbar-icon bi-bell me-4"></a>
+                        <a href="#profile" class="navbar-icon bi-person"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DASHBOARD HEADER -->
+        <section class="hero-section d-flex justify-content-center align-items-center" id="home"
+            style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/technician-working.jpg') center/cover no-repeat; min-height: 300px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12 mx-auto text-center">
+                        <h2 class="text-white mb-3">Technician Dashboard</h2>
+                        <p class="text-light">Manage your assigned tasks and interventions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICIAN STATS -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="stats-block shadow-lg">
+                            <div class="row">
+                                <div class="col-md-3 col-6 text-center mb-3 mb-md-0">
+                                    <h4>12</h4>
+                                    <p>Assigned Tasks</p>
+                                </div>
+                                <div class="col-md-3 col-6 text-center mb-3 mb-md-0">
+                                    <h4>8</h4>
+                                    <p>In Progress</p>
+                                </div>
+                                <div class="col-md-3 col-6 text-center">
+                                    <h4>3</h4>
+                                    <p>Completed Today</p>
+                                </div>
+                                <div class="col-md-3 col-6 text-center">
+                                    <h4>96%</h4>
+                                    <p>Completion Rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASSIGNED TICKETS SECTION -->
+        <section class="section-padding" id="assigned-tickets">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb-5">
+                        <h2>Assigned Tickets</h2>
+                        <p>Your currently assigned maintenance tickets</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Ticket 1 -->
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="custom-block bg-white shadow-lg dashboard-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-warning ticket-status-badge">Assigned</span>
+                                <span class="text-muted small">#TK-2025-087</span>
+                            </div>
+                            <h5 class="mb-3">AC Unit Not Cooling</h5>
+                            <p class="mb-2"><strong>Client:</strong> Office Building A</p>
+                            <p class="mb-2"><strong>Location:</strong> Floor 3, Room 302</p>
+                            <p class="mb-3"><strong>Priority:</strong> <span class="text-danger">High</span></p>
+
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-sm btn-outline-secondary" disabled>
+                                    <i class="bi-calendar me-1"></i> Not Scheduled
+                                </button>
+                                <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#ticketDetailsModal" data-ticket-id="TK-2025-087">
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ticket 2 -->
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="custom-block bg-white shadow-lg dashboard-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-info ticket-status-badge">Scheduled</span>
+                                <span class="text-muted small">#TK-2025-093</span>
+                            </div>
+                            <h5 class="mb-3">Electrical Outlet Repair</h5>
+                            <p class="mb-2"><strong>Client:</strong> Retail Store B</p>
+                            <p class="mb-2"><strong>Location:</strong> Checkout Area</p>
+                            <p class="mb-3"><strong>Priority:</strong> <span class="text-warning">Medium</span></p>
+
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi-calendar me-1"></i> Aug 10, 2:00 PM
+                                </button>
+                                <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#ticketDetailsModal" data-ticket-id="TK-2025-093">
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ticket 3 -->
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="custom-block bg-white shadow-lg dashboard-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-primary ticket-status-badge">In Progress</span>
+                                <span class="text-muted small">#TK-2025-101</span>
+                            </div>
+                            <h5 class="mb-3">Server Room Cooling Issue</h5>
+                            <p class="mb-2"><strong>Client:</strong> Data Center C</p>
+                            <p class="mb-2"><strong>Location:</strong> Server Room B</p>
+                            <p class="mb-3"><strong>Priority:</strong> <span class="text-danger">Critical</span></p>
+
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi-calendar me-1"></i> Started Aug 9
+                                </button>
+                                <a href="intervention-details.html" class="btn btn-sm btn-warning">
+                                    Continue
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <a href="assigned-tickets.html" class="btn btn-primary">View All Assigned Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERVENTION WORKFLOW SECTION -->
+        <section class="section-padding section-bg" id="interventions">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb-5">
+                        <h2>Intervention Workflow</h2>
+                        <p>Follow the standard process for handling interventions</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-10 col-12 mx-auto">
+                        <div class="intervention-timeline">
+                            <!-- Step 1 -->
+                            <div class="timeline-step">
+                                <h5>1. Receive Assignment</h5>
+                                <p>Ticket is assigned to you by admin. Check details and requirements.</p>
+                                <div class="mt-2">
+                                    <span class="badge bg-secondary">getAssignedTickets()</span>
+                                    <span class="badge bg-secondary">SELECT * FROM tickets WHERE technician_id =
+                                        X</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="timeline-step">
+                                <h5>2. Schedule Intervention</h5>
+                                <p>Plan your visit according to priority and availability.</p>
+                                <div class="mt-2">
+                                    <span class="badge bg-secondary">checkSchedule()</span>
+                                    <span class="badge bg-secondary">UPDATE tickets SET scheduled_date</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="timeline-step">
+                                <h5>3. Start Intervention</h5>
+                                <p>Begin working on the task and update the status.</p>
+                                <div class="mt-2">
+                                    <span class="badge bg-secondary">startIntervention(ticket_id)</span>
+                                    <span class="badge bg-secondary">UPDATE interventions SET status='in
+                                        progress'</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="timeline-step">
+                                <h5>4. Update Progress</h5>
+                                <p>Regularly update notes and status as you work.</p>
+                                <div class="mt-2">
+                                    <span class="badge bg-secondary">updateIntervention()</span>
+                                    <span class="badge bg-secondary">UPDATE interventions SET notes/status</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div class="timeline-step">
+                                <h5>5. Complete Intervention</h5>
+                                <p>Mark as completed when all work is done.</p>
+                                <div class="mt-2">
+                                    <span class="badge bg-secondary">completeIntervention()</span>
+                                    <span class="badge bg-secondary">UPDATE interventions SET status='completed'</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 6 -->
+                            <div class="timeline-step">
+                                <h5>6. Notify Stakeholders</h5>
+                                <p>System automatically notifies client and admin.</p>
+                                <div class="mt-2">
+                                    <span class="badge bg-secondary">generateNotification()</span>
+                                    <span class="badge bg-secondary">INSERT INTO notifications</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCHEDULE SECTION -->
+        <section class="section-padding" id="schedule">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb-5">
+                        <h2>Your Schedule</h2>
+                        <p>Upcoming interventions and tasks</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-12 mb-4">
+                        <div class="custom-block bg-white shadow-lg">
+                            <h5 class="mb-4">Today's Schedule</h5>
+
+                            <div class="d-flex border-bottom pb-3 mb-3">
+                                <div class="me-3">
+                                    <i class="bi-clock-fill text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">AC Unit Maintenance</h6>
+                                    <p class="mb-1">Office Building A - Floor 3, Room 302</p>
+                                    <span class="badge bg-light text-dark">9:00 AM - 11:00 AM</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex border-bottom pb-3 mb-3">
+                                <div class="me-3">
+                                    <i class="bi-clock-fill text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Electrical Inspection</h6>
+                                    <p class="mb-1">Retail Store B - Checkout Area</p>
+                                    <span class="badge bg-light text-dark">1:00 PM - 3:00 PM</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="bi-clock-fill text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Server Room Check</h6>
+                                    <p class="mb-1">Data Center C - Server Room B</p>
+                                    <span class="badge bg-light text-dark">4:00 PM - 5:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="custom-block bg-white shadow-lg">
+                            <h5 class="mb-4">This Week</h5>
+
+                            <div class="d-flex border-bottom pb-3 mb-3">
+                                <div class="me-3">
+                                    <i class="bi-calendar-week text-warning"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Preventive Maintenance</h6>
+                                    <p class="mb-1">Office Complex D - Multiple Units</p>
+                                    <span class="badge bg-light text-dark">Wednesday, All Day</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex border-bottom pb-3 mb-3">
+                                <div class="me-3">
+                                    <i class="bi-calendar-week text-warning"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">HVAC System Check</h6>
+                                    <p class="mb-1">Shopping Mall E - North Wing</p>
+                                    <span class="badge bg-light text-dark">Thursday, 10:00 AM</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="bi-calendar-week text-warning"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Emergency Generator Service</h6>
+                                    <p class="mb-1">Hospital F - Basement Level</p>
+                                    <span class="badge bg-light text-dark">Friday, 8:00 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-12 mb-4 pb-2">
+                    <a class="navbar-brand mb-2" href="index.html">
+                        <i class="bi-gear"></i>
+                        <span>SogeFix</span>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-6">
+                    <h6 class="site-footer-title mb-3">Technician Resources</h6>
+                    <ul class="site-footer-links">
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Procedures Manual</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Parts Catalog</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Technical Support</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                    <p class="copyright-text mt-lg-5 mt-4">© 2025 SogeFix. All rights reserved.</p>
+                    <p>Technician Portal v2.1</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>

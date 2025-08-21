@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOGELEC - Admin Dashboard</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body id="admin-dashboard">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi-shield-lock"></i>
+                <span>Admin Dashboard</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index-admin.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-reports.html">Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-users.html">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-settings.html">Settings</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link d-block" href="login-admin.html">
+                            Admin, <b>Logout</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
+        <div class="container text-center">
+            <h2 class="text-white">Welcome back, Admin</h2>
+            <p class="text-white">Manage clients, technicians, and service requests in one place.</p>
+        </div>
+    </header>
+
+    <!-- DASHBOARD CONTENT -->
+    <main class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Summary Cards -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="custom-block bg-primary text-white shadow-lg p-4 h-100 text-center">
+                        <h5 class="mb-2">Total Clients</h5>
+                        <p class="display-6 fw-bold">128</p>
+                        <span class="badge bg-light text-primary">Active</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="custom-block bg-success text-white shadow-lg p-4 h-100 text-center">
+                        <h5 class="mb-2">Technicians</h5>
+                        <p class="display-6 fw-bold">16</p>
+                        <span class="badge bg-light text-success">On Duty</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="custom-block bg-warning text-dark shadow-lg p-4 h-100 text-center">
+                        <h5 class="mb-2">Open Requests</h5>
+                        <p class="display-6 fw-bold">37</p>
+                        <span class="badge bg-light text-warning">Pending</span>
+                    </div>
+                </div>
+
+                <!-- Chart: Requests -->
+                <div class="col-lg-6 col-12">
+                    <div class="custom-block bg-white shadow-lg p-4 h-100">
+                        <h5 class="mb-3">Service Requests Overview</h5>
+                        <canvas id="requestsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart: Technicians -->
+                <div class="col-lg-6 col-12">
+                    <div class="custom-block bg-white shadow-lg p-4 h-100">
+                        <h5 class="mb-3">Technician Performance</h5>
+                        <canvas id="techChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart: Categories -->
+                <div class="col-lg-6 col-12">
+                    <div class="custom-block bg-white shadow-lg p-4 h-100">
+                        <h5 class="mb-3">Requests by Category</h5>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="col-lg-6 col-12">
+                    <div class="custom-block bg-white shadow-lg p-4 h-100">
+                        <h5 class="mb-3">Recent Notifications</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">🔔 New client request submitted.</li>
+                            <li class="list-group-item">🔧 Technician Ahmed completed intervention #124.</li>
+                            <li class="list-group-item">📊 Monthly report generated.</li>
+                            <li class="list-group-item">👤 New user registered: Client – Mohamed.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Orders (Interventions) -->
+                <div class="col-12">
+                    <div class="custom-block bg-white shadow-lg p-4">
+                        <h5 class="mb-3">Active Interventions</h5>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Request ID</th>
+                                    <th>Status</th>
+                                    <th>Technician</th>
+                                    <th>Client</th>
+                                    <th>Location</th>
+                                    <th>Start Date</th>
+                                    <th>Expected Finish</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#124</td>
+                                    <td><span class="badge bg-warning">In Progress</span></td>
+                                    <td>Ahmed</td>
+                                    <td>Slim Co.</td>
+                                    <td>Tunis</td>
+                                    <td>19 Aug 2025</td>
+                                    <td>21 Aug 2025</td>
+                                </tr>
+                                <tr>
+                                    <td>#123</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>Amine</td>
+                                    <td>Techno SA</td>
+                                    <td>Sfax</td>
+                                    <td>17 Aug 2025</td>
+                                    <td>18 Aug 2025</td>
+                                </tr>
+                                <tr>
+                                    <td>#122</td>
+                                    <td><span class="badge bg-danger">Cancelled</span></td>
+                                    <td>Karim</td>
+                                    <td>MedOil</td>
+                                    <td>Gabès</td>
+                                    <td>15 Aug 2025</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer section-padding">
+        <div class="container text-center">
+            <p class="text-white mb-0">© 2025 SOGELEC Tunisia – Admin Dashboard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        // Charts Example
+        const ctx1 = document.getElementById('requestsChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{ label: 'Requests', data: [12, 19, 14, 20, 16, 25, 22], borderColor: '#0d6efd', fill: false }]
+            }
+        });
+
+        const ctx2 = document.getElementById('techChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Ahmed', 'Amine', 'Karim', 'Sami'],
+                datasets: [{ label: 'Tasks Completed', data: [12, 9, 7, 15], backgroundColor: '#198754' }]
+            }
+        });
+
+        const ctx3 = document.getElementById('categoryChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Electrical', 'Networking', 'Plumbing', 'Others'],
+                datasets: [{
+                    data: [40, 25, 20, 15],
+                    backgroundColor: ['#0d6efd', '#198754', '#ffc107', '#dc3545']
+                }]
+            }
+        });
+    </script>
+</body>
+
+</html>
