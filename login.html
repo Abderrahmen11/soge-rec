@@ -24,38 +24,35 @@
     <!-- Navigation for logged-in users -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand" href="index.html">
                 <i class="bi-tools"></i>
                 <span>SogeFix</span>
             </a>
-
+            <div class="d-lg-none ms-auto me-4">
+                <a href="login.html" class="navbar-icon bi-person"></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Dashboard</a>
+                    <li class="nav-item"><a class="nav-link" href="user-dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tickets.html">My Requests</a></li>
+                    <li class="nav-item"><a class="nav-link" href="interventions.html">Interventions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="planning.html">Planning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Support</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="topics-listing.html">Service Listing</a></li>
+                            <li><a class="dropdown-item" href="topics-detail.html">Service Detail</a></li>
+                            <li><a class="dropdown-item" href="main.html">Get Started</a></li>
+                            <li><a class="dropdown-item" href="login.html">Login</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tickets">My Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#interventions">Interventions</a>
-                    </li>
-                    <!-- Other nav items -->
                 </ul>
-
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        <i class="bi-person-circle me-1"></i> John Doe
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#profile">Profile</a></li>
-                        <li><a class="dropdown-item" href="#settings">Settings</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item text-danger" href="logout.html">Logout</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </nav>

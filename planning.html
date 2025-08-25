@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -19,7 +20,7 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="user-dashboard.html">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="tickets.html">My Requests</a></li>
                     <li class="nav-item"><a class="nav-link" href="interventions.html">Interventions</a></li>
                     <li class="nav-item"><a class="nav-link active" href="planning.html">Planning</a></li>
@@ -28,9 +29,76 @@
             </div>
         </div>
     </nav>
+
+    <!-- Main -->
     <main class="container mt-5">
-        <h1>Planning</h1>
-        <p>This is a placeholder planning page. Please navigate using the menu.</p>
+        <h1 class="mb-4">Planning</h1>
+        <p class="text-muted">Here you can view and track the scheduled interventions.</p>
+
+        <!-- Planning Table -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle text-center">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Day</th>
+                                <th>Morning (8h - 12h)</th>
+                                <th>Afternoon (13h - 17h)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows, to be replaced dynamically -->
+                            <tr>
+                                <td>Monday</td>
+                                <td>
+                                    <span class="badge bg-success">AC Maintenance</span><br>
+                                    Technician: John Doe
+                                </td>
+                                <td>
+                                    <span class="badge bg-warning">Network Check</span><br>
+                                    Technician: Sarah Smith
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>
+                                    <span class="badge bg-info">Server Upgrade</span><br>
+                                    Technician: Ali Ben
+                                </td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>-</td>
+                                <td>
+                                    <span class="badge bg-primary">Electrical Repair</span><br>
+                                    Technician: Laura Green
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>-</td>
+                                <td>
+                                    <span class="badge bg-success">Cooling System Check</span><br>
+                                    Technician: David Lee
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>
+                                    <span class="badge bg-warning">Backup Testing</span><br>
+                                    Technician: Mark Brown
+                                </td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-3 text-muted small">* This schedule is regularly updated by administrators and technicians.
+                </p>
+            </div>
+        </div>
     </main>
 </body>
 

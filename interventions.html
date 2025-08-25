@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -19,7 +20,7 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="user-dashboard.html">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="tickets.html">My Requests</a></li>
                     <li class="nav-item"><a class="nav-link active" href="interventions.html">Interventions</a></li>
                     <li class="nav-item"><a class="nav-link" href="planning.html">Planning</a></li>
@@ -28,9 +29,74 @@
             </div>
         </div>
     </nav>
+
+    <!-- Main -->
     <main class="container mt-5">
-        <h1>Interventions</h1>
-        <p>This is a placeholder interventions page. Please navigate using the menu.</p>
+        <h1 class="mb-4">Interventions</h1>
+
+        <!-- Interventions Table -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ticket</th>
+                                <th>Technician</th>
+                                <th>Status</th>
+                                <th>Scheduled Date</th>
+                                <th>Completion Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows (to be replaced with Laravel data) -->
+                            <tr>
+                                <td>1</td>
+                                <td>Air Conditioner Repair</td>
+                                <td>John Doe</td>
+                                <td><span class="badge bg-info">In Progress</span></td>
+                                <td>2025-08-15</td>
+                                <td>-</td>
+                                <td>
+                                    <a href="intervention-detail.html" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Network Issue</td>
+                                <td>Sarah Smith</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>2025-08-12</td>
+                                <td>2025-08-13</td>
+                                <td>
+                                    <a href="intervention-detail.html" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Server Maintenance</td>
+                                <td>Ali Ben</td>
+                                <td><span class="badge bg-warning">Scheduled</span></td>
+                                <td>2025-08-20</td>
+                                <td>-</td>
+                                <td>
+                                    <a href="intervention-detail.html" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- End example rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 
